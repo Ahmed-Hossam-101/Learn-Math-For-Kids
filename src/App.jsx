@@ -10,7 +10,7 @@ function App() {
   return (
    <BrowserRouter>
 <Routes> 
-  <Route expect path='/' element={<Home />} />
+  <Route expect path='/Learn-Math-For-Kids' element={<Home />} />
   <Route path='/Plu' element={<Plu />} />
   <Route path='/M' element={<_ />} />
 </Routes>
