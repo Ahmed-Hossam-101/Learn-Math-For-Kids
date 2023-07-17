@@ -1,0 +1,8 @@
+{
+          "editor.fontFamily": "",
+          "npm.enableRunFromFolder": true,
+          "npm.runSilent": true,
+          "terminal.explorerKind": "both",
+          "debug.terminal.clearBeforeReusing": true,
+          "terminal.integrated.letterSpacing": 1
+}
