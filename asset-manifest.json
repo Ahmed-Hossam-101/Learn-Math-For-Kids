@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Learn-Math-For-Kids/static/css/main.954da150.css",
-    "main.js": "/Learn-Math-For-Kids/static/js/main.1db00d4f.js",
+    "main.js": "/Learn-Math-For-Kids/static/js/main.af4cdea6.js",
     "static/js/787.88274d92.chunk.js": "/Learn-Math-For-Kids/static/js/787.88274d92.chunk.js",
     "index.html": "/Learn-Math-For-Kids/index.html",
     "main.954da150.css.map": "/Learn-Math-For-Kids/static/css/main.954da150.css.map",
-    "main.1db00d4f.js.map": "/Learn-Math-For-Kids/static/js/main.1db00d4f.js.map",
+    "main.af4cdea6.js.map": "/Learn-Math-For-Kids/static/js/main.af4cdea6.js.map",
     "787.88274d92.chunk.js.map": "/Learn-Math-For-Kids/static/js/787.88274d92.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.954da150.css",
-    "static/js/main.1db00d4f.js"
+    "static/js/main.af4cdea6.js"
   ]
 }
