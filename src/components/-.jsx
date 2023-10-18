@@ -1,9 +1,12 @@
-import React from 'react'
-import { useState } from 'react';
+import { useState,React,useRef } from 'react';
+import bell from '../bell.mp3';
 
 function _() {
+  document.title='Math App - (-)'
+const qu = useRef()
   let c = '-';
-const [Lv,setLv]=useState(1)
+const [Lv,setLv]=useState(Number(localStorage.getItem('px-'))|| 1)
+
 
 let random_Number = Math.floor(Math.random() * (Lv *30)) ;
 let random_Number2 =  Math.floor(Math.random() * (Lv *40)) ;
@@ -91,42 +94,42 @@ let random_Number2 =  Math.floor(Math.random() * (Lv *40)) ;
   })
   btnLv1.addEventListener('click',e =>{
   setLv((e) => e =.25 )
-  console.log(Lv);
+
   })
   btnLv2.addEventListener('click',e =>{
     setLv(e => e = .5 )
   
-  console.log(Lv);
+
   
   })
   btnLv3.addEventListener('click',e =>{
   setLv(e => e =1 )
     
-  console.log(Lv);
+
   
   })
   btnLv4.addEventListener('click',e =>{
     setLv(e => e =1.5 )
       
-    console.log(Lv);
+  
     
     })
     btnLv5.addEventListener('click',e =>{
       setLv(e => e =2 )
         
-      console.log(Lv);
+    
       
       })
       btnLv6.addEventListener('click',e =>{
         setLv(e => e =3 )
           
-        console.log(Lv);
+      
         
         })
         btnLv7.addEventListener('click',e =>{
           setLv(e => e =4 )
             
-          console.log(Lv);
+        
           
           })
     
@@ -139,8 +142,6 @@ function exitf(params) {
 }
   function check() {
  if(document.querySelector('.inp').value !== ''){
-  console.log( random_Number - +document.querySelector('.inp').value );
-console.log((+document.querySelector('.inp').value - +random_Number) === result);
     if(random_Number - +document.querySelector('.inp').value === result){
       sectcount(e => e += 1);
       let random_img=Math.round(Math.random() *2)
@@ -167,9 +168,11 @@ console.log((+document.querySelector('.inp').value - +random_Number) === result)
       setInterval(e => pop.remove(),1800)
    aduio.autoplay = true;
       document.querySelector('#plus').append(aduio) 
-      setInterval(e => aduio.remove(),1000)
+      setInterval(e => aduio.remove(),2200)
   document.querySelector('.inp').value = ''
-console.log(count+2)
+  aduio.src =bell;
+   aduio.playbackRate=1.2;
+  localStorage.setItem('xp-',count)
 
   }
   else{
@@ -199,8 +202,7 @@ img2.classList.add('pop');
    document.querySelector('#score_').classList.add('toggle')   
    setTimeout(e => document.querySelector('#score').classList.remove('toggle'),1000)
    setInterval(e => aduio.remove(),1000)
-
-
+// document.body.setAttribute('text',)
 }
 document.querySelector('.inp').focus();
 }}
@@ -214,28 +216,32 @@ function answer(e) {
 }
   return (
     <div id='plus'>
-<h1 id='score' style={{'--color':'#B799ff'}} >
-        <ion-icon name="checkmark-done-circle"></ion-icon> : <span id="score_"> {count} </span>
+<h1 id='score' style={{'--color':'#07f'}} >
+        <ion-icon name="checkmark-done-circle"></ion-icon>Xp : <span id="score_"> {count} </span>
         <br />
-        <ion-icon name="speedometer-outline"></ion-icon> : <span id="LV" >{Lv}</span>
+        <ion-icon name="speedometer-outline"></ion-icon>: <span id="LV" >{Lv}</span>
         <br />
       </h1>
-      <button id='answer' onClick={answer}  style={{'--color':'#B799FF'}} ><i className='bx bxs-bolt-circle'></i></button>
-      <button id='settings' onClick={settings}   style={{'--color':'#B799ff'}} ><ion-icon name="settings"></ion-icon></button>
-      <button id='full_s' onClick={fulls} onDoubleClick={exitf}  style={{'--color':'#B799ff'}} ><ion-icon name="scan-circle-outline"></ion-icon></button>
-      <button id='rescore' onClick={e => sectcount(e => e = 0)}   style={{'--color':'#B799ff'}} ><ion-icon name="reload-outline"></ion-icon></button>
+      <button id='answer' onClick={answer}  style={{'--color':'#07f'}} ><i className='bx bxs-bolt-circle'></i></button>
+      <button id='settings' onClick={settings}   style={{'--color':'#07f'}} ><ion-icon name="settings"></ion-icon></button>
+      <button id='full_s' onClick={fulls} onDoubleClick={exitf}  style={{'--color':'#07f'}} ><ion-icon name="scan-circle-outline"></ion-icon></button>
+      <button id='rescore' onClick={e => sectcount(e => e = 0)}   style={{'--color':'#07f'}} ><ion-icon name="reload-outline"></ion-icon></button>
 
-      <h1 id='qu'  style={{'--color':'#B799FF'}} >How much <span id='halal'>{c}</span> {random_Number} =  {result} ?</h1>
-<input type="number" className='inp' min='0' max='500'  id='inpUT_'  style={{'--color':'#B799FF'}}  onKeyDown={e => {
+      <h1 id='qu'  style={{'--color':'#07f'}} ref={qu}>How much <span id='halal'>{c}</span> {random_Number} =  {result} ?</h1>
+<input type="number" className='inp' min='0' max='500'  id='inpUT_'  style={{'--color':'#07f'}}   onKeyDown={e => {
+  if(e.target.value.length >= 4){
+    e.target.value = ''
+    e.target.value.replace('-','')
+  }
   if(e.key === "Enter"){
-check()
+check();
   }
 }}/>
-<h1 id='_'  style={{'--color':'#B799FF'}} >{c}</h1>
-<h1 id='number'  style={{'--color':'#B799FF'}} >{random_Number}</h1>
-<h1 id='eq'   style={{'--color':'#B799FF'}}>=</h1>
-<h1 id='result'  style={{'--color':'#B799FF'}} >{result}</h1>
-<button id="check" onClick={check}  style={{'--color':'#B799FF'}} >check</button>
+<h1 id='_'  style={{'--color':'#07f'}} >{c}</h1>
+<h1 id='number'  style={{'--color':'#07f'}} >{random_Number}</h1>
+<h1 id='eq'   style={{'--color':'#07f'}}>=</h1>
+<h1 id='result'  style={{'--color':'#07f'}} >{result}</h1>
+<button id="check" onClick={check}  style={{'--color':'#07f'}} >check</button>
     </div>
   )
 }

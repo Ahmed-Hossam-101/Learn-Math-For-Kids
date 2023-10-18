@@ -1,5 +1,5 @@
 {
-          "editor.fontFamily": "",
+          "editor.fontFamily": "sans",
           "npm.enableRunFromFolder": true,
           "npm.runSilent": true,
           "terminal.explorerKind": "both",
